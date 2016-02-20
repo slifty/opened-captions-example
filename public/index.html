@@ -1,10 +1,10 @@
 <html>
   <head>
     <script type="text/javascript" src="js/lib/jquery.min.js"></script>
-    <script src="http://openedcaptions.media.mit.edu:8080/socket.io/socket.io.js"></script>
+    <script src="http://openedcaptions.media.mit.edu/socket.io/socket.io.js"></script>
     <script type="text/javascript">
       $(function() {
-        var socket = io('http://openedcaptions.media.mit.edu:8080');
+        var socket = io('http://openedcaptions.media.mit.edu');
         socket.on('word', function (data) {
           $("#stream").append(data.data.body + " ");
         });
