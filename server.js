@@ -1,17 +1,22 @@
 var express = require('express'),
-  OpenedCaptions = require('./opened-captions');
+  OpenedCaptions = require('opened-captions');
 
 // Make the server
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 // Serve static content from "public" directory
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
-// All set, start listening!
-var port = 3000;
-app.listen(port);
+server.listen(8080);
 
-var io = require('socket.io')(app);
 var oc = new OpenedCaptions({
   io: io
+});
+
+oc.addStream('server', {
+  host: 'http://openedcaptions.com',
+  port: 80,
+  description: "CSPAN"
 });
