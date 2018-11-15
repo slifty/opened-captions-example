@@ -16,7 +16,7 @@ var oc = new OpenedCaptions({
 });
 
 oc.addStream('server', {
-  host: 'https://openedcaptions.com',
-  port: 443,
-  description: "CSPAN"
+  host: 'http://openedcaptions.media.mit.edu',
+  port: 8080,
+  description: "C-SPAN"
 });
